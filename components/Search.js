@@ -1,42 +1,20 @@
-import { useEffect, useState } from 'react'
+'use client'
+
+import { useState } from 'react'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
-import { currentCategory, isFetching, newsResponse } from 'store/news'
-import { useRouter } from 'next/router'
-import axios from 'axios'
+import { useRouter } from 'next/navigation'
 
 export default function Search() {
   const [inputValue, setInputValue] = useState('')
   const router = useRouter()
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (!inputValue) return
-      currentCategory.value = null
-      handleSearch()
-    }, 1000)
-    return () => {
-      clearTimeout(timeout)
-    }
-  }, [inputValue])
-
-  async function handleSearch() {
-    try {
-      isFetching.value = true
-      const response = await axios.get(`/api/${inputValue}?page=1`)
-      newsResponse.value = response.data.articles
-    } catch (error) {
-      console.log(error)
-    } finally {
-      isFetching.value = false
-    }
-  }
-
   function handleSubmit(e) {
     e.preventDefault()
+    router.push(`/?q=${inputValue}`)
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-xl">
+    <form onSubmit={handleSubmit} className="w-full max-w-xl mx-auto mt-4">
       <label
         htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"

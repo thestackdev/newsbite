@@ -1,4 +1,4 @@
-FROM node:alpine AS deps
+FROM node:lts-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
@@ -10,7 +10,7 @@ RUN \
     fi
 
 
-FROM node:alpine AS builder
+FROM node:lts-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -18,7 +18,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 RUN yarn build
 
 
-FROM node:alpine AS runner
+FROM node:lts-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
