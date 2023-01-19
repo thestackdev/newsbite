@@ -8,7 +8,7 @@ platform:
 
 steps:
   - name: deploy
-    secrets: [base_url, api_key]
+    secrets: [BASE_URL, BASE_URL]
     commands:
       - echo $BASE_URL
       - echo $API_KEY
