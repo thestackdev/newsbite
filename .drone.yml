@@ -9,10 +9,13 @@ platform:
 steps:
   - name: deploy
     environment:
-      BASE_URL: https://newsapi.org/v2
-      API_KEY: helloworld
+      BASE_URL:
+        from_secret: BASE_URL
+      API_KEY:
+        from_secret: API_KEY
     commands:
-      - echo $BASE_URL
-      - echo $API_KEY
+      - echo $BASE_URL > .env
+      - echo $API_KEY >> .env
+      - cat .env
       - docker compose up -d --build --force-recreate
       - docker system prune -f -a
