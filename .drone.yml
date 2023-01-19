@@ -8,7 +8,9 @@ platform:
 
 steps:
   - name: deploy
-    secrets: [BASE_URL, BASE_URL]
+    environment:
+      BASE_URL: https://newsapi.org/v2
+      API_KEY: helloworld
     commands:
       - echo $BASE_URL
       - echo $API_KEY
