@@ -1,5 +1,5 @@
-import { BASE_URL, API_KEY, SIX_HOURS } from 'utils/constants'
 import Card from 'components/Card'
+import { API_KEY, BASE_URL, SIX_HOURS } from 'utils/constants'
 
 export default async function Page({ searchParams }) {
   let URL = `${BASE_URL}/top-headlines?country=in&apiKey=${API_KEY}&pageSize=100`

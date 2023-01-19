@@ -2,14 +2,14 @@
 
 ### Category endpoints
 
-- [Business](https://feed.fullstacklab.org/api?category=business)
-- [Entertainment](https://feed.fullstacklab.org/api?category=entertainment)
-- [General](https://feed.fullstacklab.org/api?category=general)
-- [Health](https://feed.fullstacklab.org/api?category=health)
-- [Science](https://feed.fullstacklab.org/api?category=science)
-- [Sports](https://feed.fullstacklab.org/api?category=sports)
-- [Technology](https://feed.fullstacklab.org/api?category=technology)
+- [Business](https://feed.fullstacklab.org/business)
+- [Entertainment](https://feed.fullstacklab.org/entertainment)
+- [General](https://feed.fullstacklab.org/general)
+- [Health](https://feed.fullstacklab.org/health)
+- [Science](https://feed.fullstacklab.org/science)
+- [Sports](https://feed.fullstacklab.org/sports)
+- [Technology](https://feed.fullstacklab.org/technology)
 
 ### Search endpoint
 
-[Search for "youtube"](http://localhost:3000/api/youtube?page=1)
+[Search for "youtube"](http://localhost:3000/?q=youtube)
