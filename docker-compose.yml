@@ -1,0 +1,13 @@
+services:
+  feed:
+    image: fullstacklab/feed
+    container_name: feed
+    restart: unless-stopped
+    build: .
+    network_mode: traefik
+    labels:
+      traefik.enable: true
+      traefik.http.services.feed.loadbalancer.server.port: 3000
+      traefik.http.routers.feed.rule: Host(`feed.fullstacklab.org`)
+      traefik.http.routers.feed.entrypoints: https
+      traefik.http.routers.feed.tls.certresolver: letsencrypt
