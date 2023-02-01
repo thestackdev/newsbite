@@ -1,13 +1,11 @@
-import React from 'react'
-
 export default function loading() {
   return (
     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 my-4 w-full p-8 max-w-screen-2xl mx-auto">
       {Array(8)
         .fill()
-        .map((e) => (
+        .map((e, key) => (
           <div
-            key={e}
+            key={key}
             role="status"
             className="w-96 max-w-sm p-4 border border-gray-200 rounded shadow animate-pulse md:p-6 dark:border-gray-700"
           >

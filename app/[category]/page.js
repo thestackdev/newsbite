@@ -1,11 +1,11 @@
 import Card from 'components/Card'
 import { notFound } from 'next/navigation'
-import { BASE_URL, API_KEY, SIX_HOURS, CATEGORIES } from 'utils/constants'
+import { CATEGORIES, SIX_HOURS } from 'utils/constants'
 
 export default async function Category({ params }) {
   const category = params.category
 
-  let URL = `${BASE_URL}/top-headlines?country=in&apiKey=${API_KEY}&pageSize=100`
+  let URL = `${process.env.BASE_URL}/top-headlines?country=in&apiKey=${process.env.API_KEY}&pageSize=100`
   if (CATEGORIES.includes(category)) URL = URL.concat(`&category=${category}`)
   else notFound()
 
