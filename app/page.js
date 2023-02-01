@@ -1,13 +1,13 @@
 import Card from 'components/Card'
-import { API_KEY, SIX_HOURS } from 'utils/constants'
+import { SIX_HOURS } from 'utils/constants'
 
 export default async function Page({ searchParams }) {
-  let URL = `${process.env.BASE_URL}/top-headlines?country=in&apiKey=${API_KEY}&pageSize=100`
+  let URL = `${process.env.BASE_URL}/top-headlines?country=in&apiKey=${process.env.API_KEY}&pageSize=100`
 
   const query = searchParams.q
 
   if (query)
-    URL = `${process.env.BASE_URL}/everything?q=${query}&apiKey=${API_KEY}`
+    URL = `${process.env.BASE_URL}/everything?q=${query}&apiKey=${process.env.API_KEY}`
 
   const response = await fetch(URL, {
     next: { revalidate: SIX_HOURS },
