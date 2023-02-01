@@ -1,8 +1,8 @@
 'use client'
-import { CATEGORIES } from 'utils/constants'
 import { Bars3Icon } from '@heroicons/react/24/outline'
-import { useState } from 'react'
 import Link from 'next/link'
+import { useState } from 'react'
+import { CATEGORIES } from 'utils/constants'
 
 export default function Navbar() {
   const [toggleOpened, setToggleOpened] = useState(false)
@@ -12,7 +12,7 @@ export default function Navbar() {
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <Link href="/" className="flex items-center">
           <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-            News Feed
+            News Bite
           </span>
         </Link>
         <button
